@@ -1,0 +1,101 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div>
+        <h1>Music  Application</h1>
+        <h2>Huỳnh Ngọc Sơn - 18521694</h2>
+        <h3>C#</h3>
+    </div>
+
+    <a href="/Song/Index" class="btn btn-info">Quản lý bài hát</a>
+
+    <br />
+    <br />
+
+    <a href="/CategorySong/Index" class="btn btn-primary">Quản lý loại bài hát</a>
+
+    @*<button class="btn-audio">Test audio</button>
+    <button class="btn-audio-2">Test audio 2</button>*@
+
+    <script>
+        var win;
+        var obj = {
+            init: function () {
+                this.click();
+                this.click2();
+            },
+            click: function () {
+                $(".btn-audio").on("click", function () {
+                    var url = "//mp3-s1-m-zmp3.zadn.vn/d3526475e3320a6c5323/1707203349230952348?authen=exp=1619190091~acl=/d3526475e3320a6c5323/*~hmac=dfbfc19f633a5c3666740a31cdbc7043&fs=MTYxOTAxNzI5MTAzNHx3ZWJWNHwxNC4xODmUsICdUngMjE0LjIzNA";
+
+                    var newWindow = window.open(url, '_blank');
+
+                    win = newWindow;
+
+                    console.log(newWindow.window);
+
+
+
+
+                })
+            },
+            click2: function () {
+                $(".btn-audio-2").on("click", function () {
+                    function UrlExists(url, cb) {
+                        jQuery.ajax({
+                            url: url,
+                            dataType: 'text',
+                            type: 'GET',
+                            complete: function (xhr) {
+                                if (typeof cb === 'function') {
+                                    cb.apply(this, [xhr.status]);
+                                    console.log(xhr.getAllResponseHeaders());
+                                    console.log(xhr.Headers);
+
+                                }
+                            }
+                        });
+                    }
+
+
+                    var url = "//mp3-s1-m-zmp3.zadn.vn/d3526475e3320a6c5323/1707203349230952348?authen=exp=1619190091~acl=/d3526475e3320a6c5323/*~hmac=dfbfc19f633a5c3666740a31cdbc7043&fs=MTYxOTAxNzI5MTAzNHx3ZWJWNHwxNC4xODmUsICdUngMjE0LjIzNA";
+                    //console.log(win.document.domain);
+                    UrlExists(url, function (status) {
+                        if (status === 200) {
+                            // Execute code if successful
+                            console.log("Ok");
+                        } else if (status === 404) {
+                            // Execute code if not successful
+                            console.log('not ok');
+                        } else {
+                            // Execute code if status doesn't match above
+                            console.log('not not  ok');
+                        }
+                    });
+                })
+            }
+        }
+
+        obj.init();
+
+    </script>
+
+</body>
+</html>

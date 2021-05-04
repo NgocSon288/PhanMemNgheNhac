@@ -1,0 +1,60 @@
+﻿@model List<MusicWebAPI.Models.SongCategory>
+@{
+    Layout = null;
+    var i = 1;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div>
+        <h1>Quản lý thể loại bài hát</h1>
+
+        <form action="/CategorySong/Create" method="post">
+            <input type="text" name="name" class="form-control"/>
+            <input type="submit" value="Thêm" class="btn btn-primary" />
+        </form>
+          
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>ID</th>
+                    <th>Tên</th>  
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>@(i++)</th>
+                        <th>@item.ID</th>
+                        <th>
+                            <form action="/CategorySong/Update" method="post"> 
+                                <input type="text" name="name" value="@item.DisplayName" />
+                                @Html.Hidden("id", item.ID)
+
+                                <input type="submit" value="Cập nhật" class="btn btn-info"/> 
+                            </form>
+                            <a href="/CategorySong/Delete/@item.ID" class="btn btn-danger">Xóa</a>
+                        </th>  
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+    <a href="/">Quay về  trang chủ</a>
+</body>
+</html>

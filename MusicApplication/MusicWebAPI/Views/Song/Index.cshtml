@@ -1,0 +1,207 @@
+﻿@model List<MusicWebAPI.Models.Song>
+@{
+    Layout = null;
+    var i = 1;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .link {
+            color: blue;
+        }
+
+        .no-link {
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <h1>Quản lý bài hát</h1>
+
+        <a class="btn btn-primary btn-api">Thêm nhạc từ Zing MP3</a>
+        <a href="/Song/Create" class="btn btn-primary">Thêm 1 bản nhạc</a>
+        <br />
+        <br />
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>ID</th>
+                    <th>Code</th>
+                    <th>Tên bài hát</th>
+                    <th>Trình bày</th>
+                    <th>URL</th>
+                    <th>Modified</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@(i++)</td>
+                        <td>@item.IDZing</td>
+                        <td>
+                            <a href="https://mp3.zing.vn/xhr/media/get-source?type=audio&key=@item.Code">@item.Code</a>
+                        </td>
+                        <td>@item.DisplayName</td>
+                        <td>@item.Performer</td>
+                        <td>
+                            @{
+                                var check = item.URL != "" && item.URL != null;
+                            }
+                            <a href="@item.URL" class="@(check?"link":"no-link")" target="_blank">@(check? "Có link" :"Chưa có link")</a>
+                        </td>
+                        <td>
+                            <a href="/Song/Update/@item.ID">Cập nhật</a>
+                            <a href="/Song/Delete/@item.ID" style="color: red;">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+    <script>
+        var obj = {
+            init: function () {
+                this.update();
+                this.clickButtonApi();
+            },
+            update: function () {
+                $('.btn-update-url').on("click", function () {
+                    var url = $(this).data("url");
+
+                    // get data from api
+                    $.ajax({
+                        url: url,
+                        type: "GET",
+                        success: function (response) {
+                            console.log(response.data);
+                            console.log(response.data.source);
+                            console.log(response.data.source[128]);
+                        }
+                    })
+                })
+            },
+            urlExists: function (url) {
+                var http = $.ajax({
+                    type: "HEAD",
+                    url: url,
+                    async: false
+                })
+                return http.status;
+                // this will return 200 on success, and 0 or negative value on error
+            },
+            clickButtonApi: function () {
+                $(".btn-api").on("click", function () {
+
+                    var tk = prompt("Vui lòng nhập tài khoản");
+                    var mk = prompt("Vui lòng nhập mật khẩu")
+                    if (tk === "18521694@gm.uit.edu.vn" && mk === 'SOn01698182219') {
+
+                        $.ajax({
+                            url: "/Song/DeleteAll",
+                            data: {},
+                            type: "POST",
+                            success: function (response) {
+                                if (response == 1)
+                                    console.log('delete all success');
+                                else
+                                    console.log('delete all false');
+                            }
+                        })
+
+                        const url = "https://mp3.zing.vn/xhr/chart-realtime?songId=0&videoId=0&albumId=0&chart=song&time=-1";
+
+                        $.ajax({
+                            url: url,
+                            type: "GET",
+                            success: function (response) {
+
+                                response.data.song.forEach(item => {
+
+                                    var id = item.id;
+                                    var name = item.name;
+                                    var title = item.title;
+                                    var code = item.code;
+                                    var artists_names = item.artists_names;
+                                    var performer = item.performer;
+                                    var thumbnail = item.album?.thumbnail_medium ?? item.thumbnail;
+                                    var duration = item.duration;
+                                    var lyricLink = item.lyric;
+                                    var total = item.total;
+                                    var url = "";
+
+                                    $.ajax({
+                                        url: `https://mp3.zing.vn/xhr/media/get-source?type=audio&key=${code}`,
+                                        type: "GET",
+                                        success: function (response) {
+                                            // kiem̉ê  tra url
+                                            var end = response.data.source[128].substring(24);
+                                            var i = 0;
+
+
+                                            while (i <= 24) {
+                                                var replace = '';
+                                                if (i == 0) {
+                                                    replace = 'qt-3';
+                                                }
+                                                else {
+                                                    replace = `zn-${i}`;
+                                                }
+
+                                                url = `https://vnso-${replace}-tf-mp3-s1-m-zmp3.zadn.vn/` + end;
+
+                                                var check = obj.urlExists(url);
+                                                console.log(check);
+
+                                                if (check == 200) {
+                                                    $.ajax({
+                                                        url: "/Song/Creates",
+                                                        data: { id, name, title, code, artists_names, performer, thumbnail, duration, lyricLink, total, url },
+                                                        type: "POST",
+                                                        success: function (response) {
+                                                            console.log(response);
+                                                        }
+                                                    })
+
+                                                    break;
+                                                }
+
+                                                i++;
+                                            }
+
+
+                                        }
+                                    });
+
+                                })
+                            }
+                        });
+                    }
+
+                })
+            }
+
+        }
+
+        obj.init();
+    </script>
+
+</body>
+</html>
