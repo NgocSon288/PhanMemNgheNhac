@@ -51,11 +51,13 @@ namespace App.UCs
                     rand.Next(10000,10000000).ToString()
                 };
 
-                var check = await SaveFiles(Constants.SAVE_FILES_SONG, new List<string>() { song.Thumbnail, song.Lyric, song.URL }, randStr);
 
-                song.Thumbnail = Constants.DOMAIN + "Assets/Images/" + randStr[0] + Path.GetFileName(song.Thumbnail);
-                song.Lyric = Constants.DOMAIN + "Assets/Images/" + randStr[1] + Path.GetFileName(song.Lyric);
-                song.URL = Constants.DOMAIN + "Assets/Images/" + randStr[2] + Path.GetFileName(song.URL);
+                var check = await SaveFiles(Constants.SAVE_FILES_SONG, new List<string>() { song.Thumbnail, song.Lyric, song.URL }, randStr);
+                //var check = await SaveFiles(Constants.SAVE_FILES_SONG, new List<string>() { song.Thumbnail}, randStr);
+
+                song.Thumbnail = Constants.DOMAIN + "App_Start/" + randStr[0] + Path.GetFileName(song.Thumbnail);
+                song.Lyric = Constants.DOMAIN + "App_Start/" + randStr[1] + Path.GetFileName(song.Lyric);
+                song.URL = Constants.DOMAIN + "App_Start/" + randStr[2] + Path.GetFileName(song.URL);
 
                 song.ViewCount = 0;
                 song.IDZing = "";

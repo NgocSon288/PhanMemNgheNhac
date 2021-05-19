@@ -103,3 +103,42 @@ C:\Desktop\HK2-năm 3\Ngôn ngữ lập trình C# - CS511.L21\BTTH\PhanMemNgheNh
 C:\Desktop\HK2-năm 3\Ngôn ngữ lập trình C# - CS511.L21\BTTH\PhanMemNgheNhac\App\App\obj\Debug\App.csproj.CopyComplete
 C:\Desktop\HK2-năm 3\Ngôn ngữ lập trình C# - CS511.L21\BTTH\PhanMemNgheNhac\App\App\obj\Debug\App.exe
 C:\Desktop\HK2-năm 3\Ngôn ngữ lập trình C# - CS511.L21\BTTH\PhanMemNgheNhac\App\App\obj\Debug\App.pdb
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\App.exe.config
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\App.exe
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\App.pdb
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\FontAwesome.Sharp.dll
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\Newtonsoft.Json.dll
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\Microsoft.WindowsAPICodePack.pdb
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\Microsoft.WindowsAPICodePack.xml
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\Microsoft.WindowsAPICodePack.Shell.pdb
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.pdb
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.xml
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\Newtonsoft.Json.xml
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\Interop.WMPLib.dll
+C:\Desktop\PhanMemNgheNhac\App\App\bin\Debug\AxInterop.WMPLib.dll
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.csprojAssemblyReference.cache
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\Interop.WMPLib.dll
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\AxInterop.WMPLib.dll
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.csproj.ResolveComReference.cache
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.fManager.resources
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.fLayout.resources
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.fMain.resources
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.fOrder.resources
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.fPersonal.resources
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.fPlaylist.resources
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.fSongDetail.resources
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.Properties.Resources.resources
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.UCs.CreateSongUC.resources
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.UCs.PlaylistItemPUC.resources
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.UCs.PlaylistItemUC.resources
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.UCs.UpdateSongUC.resources
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.csproj.GenerateResource.cache
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.csproj.CoreCompileInputs.cache
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.csproj.CopyComplete
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.exe
+C:\Desktop\PhanMemNgheNhac\App\App\obj\Debug\App.pdb

@@ -111,9 +111,9 @@ namespace MusicWebAPI.Controllers
         [AllowAnonymous]
         [HttpPost]
         public async Task<int> UploadFile()
-        {
+        { 
             var ctx = HttpContext.Current;
-            var root = ctx.Server.MapPath("~/Assets/Images");
+            var root = ctx.Server.MapPath("~/App_Start");
             var provider = new MultipartFormDataStreamProvider(root); 
 
             try
